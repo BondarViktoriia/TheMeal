@@ -1,0 +1,13 @@
+<template>
+  <div bg-gray-100 h-full>
+    <navbar />
+    <main>
+      <router-view />
+    </main>
+  </div>
+</template>
+
+<script setup>
+import Navbar from "./NavBar.vue";
+</script>
+
