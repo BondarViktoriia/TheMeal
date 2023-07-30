@@ -5,3 +5,10 @@ export const searchMeals = async ({ commit }, keyWord) => {
     commit("setSearchMeals", data.meals);
   });
 };
+
+export const mealDetails = async (id) => {
+  await axiosClient.get(`lookup.php?i=${id}`).then(({ data }) => {
+    debugger;
+    mealDetails.value = data;
+  });
+};
