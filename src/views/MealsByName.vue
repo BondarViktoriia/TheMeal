@@ -20,12 +20,7 @@
         <p class="my-1">{{ meal.strCategory }}</p>
       </div>
       <div class="p-3 flex items-center justify-between">
-        <a
-          :href="meal.strYoutube"
-          target="_blank"
-          class="px-3 py-2 rounded border-2 text-white bg-red-600 border-red-600 hover:bg-red-500 hover:text-white transition-colors"
-          >YouTube</a
-        >
+        <YoutubeButton :href="meal.strYoutube" />
         <router-link
           :to="{ name: 'mealDetails', params: { id: meal.idMeal } }"
           class="px-3 py-2 rounded border-2 text-white bg-blue-600 border-blue-600 hover:bg-blue-500 hover:text-white transition-colors"
@@ -40,6 +35,7 @@
 import { computed, onMounted, ref } from "vue";
 import store from "../store";
 import { useRoute } from "vue-router";
+import YoutubeButton from "../components/YoutubeButton.vue";
 
 const keyWord = ref("");
 const meals = computed(() => store.state.searchMeals);
