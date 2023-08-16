@@ -8,20 +8,24 @@
         >{{ letter }}
       </router-link>
     </div>
+    <Meals :meals="meals" />
   </div>
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted, watch } from "vue";
+import { useRoute } from "vue-router";
 import store from "../store";
-import axiosClient from "../axiosClient";
+import Meals from "../components/Meals.vue";
 
+const route = useRoute();
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-const ingredients = ref([]);
+const meals = computed(() => store.state.mealsByLetter);
 
-onMounted(async () => {
-  const response = await axiosClient.get("/list.php?i=list");
-  ingredients.value = response.data.meals;
+watch(route, () => {
+  store.dispatch("searchMealsByLetter", route.params.letter);
+});
+onMounted(() => {
+  store.dispatch("searchMealsByLetter", route.params.letter);
 });
 </script>
-
