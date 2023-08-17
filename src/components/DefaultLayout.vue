@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100 h-full max-w-[1200px] mx-auto">
+  <div class="h-full max-w-[1200px] mx-auto">
     <Navbar />
     <main>
       <div class="max-w-[1200px] mx-auto mt-[40px]">
