@@ -8,7 +8,7 @@
         >{{ letter }}
       </router-link>
     </div>
-    <Meals :meals="meals" />
+    <MealsCard :meals="meals" />
   </div>
 </template>
 
@@ -16,7 +16,7 @@
 import { computed, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 import store from "../store";
-import Meals from "../components/Meals.vue";
+import MealsCard from "../components/MealsCard.vue";
 
 const route = useRoute();
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");

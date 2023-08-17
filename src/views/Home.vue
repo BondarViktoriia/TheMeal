@@ -1,17 +1,22 @@
 <template>
-  <div class="flex flex-col p-8 items-center justify-center"></div>
+  <div class="p-8 pb-0 text-red-600">
+    <h1 class="text-4xl font-bold mb-4">Popular Meals</h1>
+  </div>
+  <MealsCardVue :meals="meals" />
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from "vue";
-import store from "../store";
+import { onMounted, ref } from "vue";
 import axiosClient from "../axiosClient";
+import MealsCardVue from "../components/MealsCard.vue";
 
-const ingredients = ref([]);
+const meals = ref([]);
 
 onMounted(async () => {
-  const response = await axiosClient.get("/list.php?i=list");
-  ingredients.value = response.data.meals;
+  for (let i = 0; i < 10; i += 1) {
+    await axiosClient
+      .get("random.php")
+      .then(({ data }) => meals.value.push(data.meals[0]));
+  }
 });
 </script>
-

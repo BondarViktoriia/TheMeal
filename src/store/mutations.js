@@ -8,3 +8,7 @@ export const setMealsByLetter = (state, meals) => {
 export const setMealsByIngredient = (state, meals) => {
   state.mealsByIngredient = meals || [];
 };
+
+export const setIngredient = (state, ingredient) => {
+  state.ingredient = ingredient;
+};
