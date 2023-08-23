@@ -1,4 +1,6 @@
 ![theMeal](https://github.com/BondarViktoriia/TheMeal/assets/103380251/7bc57dfb-5b9c-40b9-8596-b5f241976329)
+
+
 This app for searching meals by name,by ingredients and by first later.
 Created by Vue
 
